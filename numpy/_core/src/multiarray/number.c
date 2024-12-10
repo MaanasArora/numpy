@@ -382,16 +382,16 @@ array_power(PyObject *a1, PyObject *o2, PyObject *modulo)
 {
     PyObject *value = NULL;
 
-    if (modulo != Py_None) {
+    if (modulo != Py_None) {`
         /* modular exponentiation is not implemented (gh-8804) */
         Py_INCREF(Py_NotImplemented);
         return Py_NotImplemented;
     }
 
     BINOP_GIVE_UP_IF_NEEDED(a1, o2, nb_power, array_power);
-    if (fast_scalar_power(a1, o2, 0, &value) != 0) {
-        value = PyArray_GenericBinaryFunction(a1, o2, n_ops.power);
-    }
+    // if (fast_scalar_power(a1, o2, 0, &value) != 0) {
+    value = PyArray_GenericBinaryFunction(a1, o2, n_ops.power);
+    // }
     return value;
 }
 
@@ -531,9 +531,9 @@ array_inplace_power(PyArrayObject *a1, PyObject *o2, PyObject *NPY_UNUSED(modulo
 
     INPLACE_GIVE_UP_IF_NEEDED(
             a1, o2, nb_inplace_power, array_inplace_power);
-    if (fast_scalar_power((PyObject *) a1, o2, 1, &value) != 0) {
-        value = PyArray_GenericInplaceBinaryFunction(a1, o2, n_ops.power);
-    }
+    // if (fast_scalar_power((PyObject *) a1, o2, 1, &value) != 0) {
+    value = PyArray_GenericInplaceBinaryFunction(a1, o2, n_ops.power);
+    // }
     return value;
 }
 
