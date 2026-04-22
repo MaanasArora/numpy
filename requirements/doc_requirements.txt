@@ -7,7 +7,7 @@ sphinx-design
 scipy
 matplotlib!=3.10.6
 pandas
-breathe>4.33.0
+breathe>=4.36.0
 ipython!=8.1.0
 # Needed for ipython>=8.17
 # https://github.com/ipython/ipython/issues/14237
