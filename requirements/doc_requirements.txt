@@ -1,7 +1,7 @@
 # doxygen required, use apt-get or dnf
 sphinx==7.2.6
 numpydoc==1.10.0
-pydata-sphinx-theme>=0.15.2
+pydata-sphinx-theme>=0.16.1
 sphinx-copybutton
 sphinx-design
 scipy
