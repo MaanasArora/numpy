@@ -17,7 +17,7 @@ pickleshare
 towncrier
 toml
 
-scipy-doctest>=1.8.0
+scipy-doctest>=2.2.0
 
 # interactive documentation utilities
 # see https://github.com/jupyterlite/pyodide-kernel#compatibility
