@@ -2931,6 +2931,10 @@ class TestMethods:
 
         idx = np.argsort(a, stable=stable, descending=descending, axis=-1)
         sorted_a = a[idx]
+        if np.issubdtype(a.dtype, np.object_):
+            # cast to float for comparison, as object does not support isnan
+            sorted_a = sorted_a.astype(float)
+
         diff_sorted_a = np.diff(sorted_a[:-11])
         if descending:
             diff_sorted_a = -diff_sorted_a
@@ -2949,6 +2953,10 @@ class TestMethods:
 
         idx = np.argsort(a_randomized, stable=stable, descending=descending, axis=-1)
         sorted_a = a_randomized[idx]
+        if np.issubdtype(a.dtype, np.object_):
+            # cast to float for comparison, as object does not support isnan
+            sorted_a = sorted_a.astype(float)
+
         diff_sorted_a = np.diff(sorted_a[:-11])
         if descending:
             diff_sorted_a = -diff_sorted_a
